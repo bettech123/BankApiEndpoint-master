@@ -17,7 +17,7 @@ namespace BankApiEndpoint.Models
         public string Password { get; set; }
 
     }
-    public class BvnDetailsSucessResponse
+    public class BvnDetailsResponse
     {
         [JsonProperty("firstName")]
         public string FirstName { get; set; }
@@ -153,7 +153,7 @@ namespace BankApiEndpoint.Models
         [JsonProperty("password")]
         public string Password { get; set; }
     }
-    public class NIPTransactionStatusSuccessResponse
+    public class NIPTransactionStatusResponse
     {
         [JsonProperty("amount")]
         public string Amount { get; set; }
@@ -187,8 +187,107 @@ namespace BankApiEndpoint.Models
         [JsonProperty("responseCode")]
         public string ResponseCode { get; set; }
     }
+    // start
+    public class ProvidusFundTransferRequest
+    {
+        [JsonProperty("creditAccount")]
+        public string CreditAccount { get; set; }
 
+        [JsonProperty("debitAccount")]
+        public string DebitAccount { get; set; }
 
+        [JsonProperty("transactionAmount")]
+        public string TransactionAmount { get; set; }
+
+        [JsonProperty("currencyCode")]
+        public string CurrencyCode { get; set; }
+
+        [JsonProperty("narration")]
+        public string Narration { get; set; }
+
+        [JsonProperty("transactionReference")]
+        public string TransactionReference { get; set; }
+
+        [JsonProperty("userName")]
+        public string UserName { get; set; }
+
+        [JsonProperty("password")]
+        public string PassWord { get; set; }
+    }
+    public class ProvidusFundTransferSucessResponse
+    {
+        [JsonProperty("amount")]
+        public string Amount { get; set; }
+
+        [JsonProperty("transactionReference")]
+        public string TransactionReference { get; set; }
+
+        [JsonProperty("currency")]
+        public string Currency { get; set; }
+
+        [JsonProperty("responseMessage")]
+        public string ResponseMessage { get; set; }
+
+        [JsonProperty("responseCode")]
+        public string ResponseCode { get; set; }
+    }
+    public class ProvidusFundTransferFailedResponse
+    {
+        [JsonProperty("transactionReference")]
+        public string TransactionReference { get; set; }
+
+        [JsonProperty("responseMessage")]
+        public string ResponseMessage { get; set; }
+
+        [JsonProperty("responseCode")]
+        public string ResponseCode { get; set; }
+    }
+
+    public class GetProvidusTransactionStatusRequest
+    {
+        [JsonProperty("transactionReference")]
+        public string TransactionReference { get; set; }
+
+        [JsonProperty("userName")]
+        public string UserName { get; set; }
+
+        [JsonProperty("password")]
+        public string Password { get; set; }
+    }
+    public class GetProvidusTransactionStatusSuccessResponse
+    {
+        [JsonProperty("amount")]
+        public string Amount { get; set; }
+
+        [JsonProperty("ceditAccount")]
+        public string CreditAccount { get; set; }
+
+        [JsonProperty("debitAccount")]
+        public string DebitAccount { get; set; }
+
+        [JsonProperty("transactionReference")]
+        public string TransactionReference { get; set; }
+
+        [JsonProperty("transactionDateTime")]
+        public string TransactionDateTime { get; set; }
+
+        [JsonProperty("currency")]
+        public string Currency { get; set; }
+
+        [JsonProperty("responseMessage")]
+        public string ResponseMessage { get; set; }
+
+        [JsonProperty("responseCode")]
+        public string ResponseCode { get; set; }
+    }
+    public class GetProvidusTransactionStatusFailedResponse
+    {
+        [JsonProperty("responseMessage")]
+        public string ResponseMessage { get; set; }
+
+        [JsonProperty("responseCode")]
+        public string ResponseCode { get; set; }
+    }
 
 }
 

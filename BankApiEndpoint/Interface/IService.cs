@@ -10,6 +10,10 @@ namespace BankApiEndpoint.Interface
     {
         Task<NIPAccountResponse> GetNIPAccountDeatials(NIPAccountRequest accountRequest);
         Task<NIPFundTransferSucessResponse> NIPFundTransfer(NIPFundTransfer fundTransfer);
-
+        Task<BvnDetailsResponse> GetBVNDetails(GetBvnDetailsRequest getBvnDetails);
+        Task<NIPTransactionStatusResponse> GetNIPTransactionStatus(NIPTransactionStatusRequest transactionStatus);
+        Task<GetNIPBanksModel> GetNIPBanks();
+        Task<ProvidusFundTransferSucessResponse> ProvidusFundTransfer(ProvidusFundTransfer fundTransfer);
+        Task<GetProvidusTransactionStatusSuccessResponse> GetProvidusTransactionStatus(GetProvidusTransactionStatus statusRequest);
     }
 }

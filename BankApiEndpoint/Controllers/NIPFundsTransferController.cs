@@ -16,6 +16,16 @@ namespace BankApiEndpoint.Controllers
             _service = service;
         }
 
+        // Endpoints to get BVN details        
+         [HttpPost("GetBVNDetails")]
+        public async Task<ActionResult> GetBVN(GetBvnDetailsRequest request)
+        {
+            var result = await _service.GetBVNDetails(request);
+            return Ok(result);
+
+        }
+
+        // enpoints for account details
         [HttpPost("GetNIPAccountDetails")]
         public async Task<ActionResult> GetNIPAccount(NIPAccountRequest request)
         {
@@ -25,13 +35,47 @@ namespace BankApiEndpoint.Controllers
         
         
         }
-
+        //Endpoints to transfer from one Providus Account to another Providus account
         [HttpPost("NIPAccountTransfer")]
         public async Task<ActionResult> NIPFundTransfer(NIPFundTransfer request)
         {
             var result = await _service.NIPFundTransfer(request);
             return Ok(result);
+        }
 
+        //Endpoint for to check transaction status
+        [HttpPost("GetNIPTransactionStatus")]
+        public async Task<ActionResult> GetNIPTransactionStatus(NIPTransactionStatusRequest request)
+        {
+            var result = await _service.GetNIPTransactionStatus(request);
+            return Ok(result);
+
+        }
+
+        [HttpGet("GetNIPBanks")]
+        public async Task<IActionResult> GetNIPBanks() //(string BankCode, string BankName)
+        {
+
+            GetNIPBanksModel getNipBanks = new GetNIPBanksModel();
+
+            getNipBanks = await _service.GetNIPBanks(); //(BankCode, BankName);
+
+            return Ok(getNipBanks);
+        }
+
+        [HttpPost("ProvidusFundTransfer")]
+        public async Task<ActionResult> ProvidusFundTransfer(ProvidusFundTransfer request)
+        {
+            var result = await _service.ProvidusFundTransfer(request);
+            return Ok(result);
+        }
+
+
+        [HttpPost("GetProvidusTransactionStatus")]
+        public async Task<ActionResult> GetProvidusTransactionStatus(GetProvidusTransactionStatus request)
+        {
+            var result = await _service.GetProvidusTransactionStatus(request);
+            return Ok(result);
         }
     }
 }
