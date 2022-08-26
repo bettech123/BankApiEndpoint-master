@@ -7,11 +7,8 @@
         public string NIPFundTransfer { get; set; }
         public string GetNIPTransactionStatus { get; set; }
         public string GetBvnDetails { get; set; }
-        public string GetNipBanks { get; set; }
+        public string GetNIPBanks { get; set; }
         public string ProvidusFundTransfer { get; set; }
         public string GetProvidusTransactionStatus { get; set; }
-
-        
-
     }
 }

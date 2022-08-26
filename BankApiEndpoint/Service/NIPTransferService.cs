@@ -173,7 +173,7 @@ namespace BankApiEndpoint.Service
 
         public async Task<ProvidusFundTransferSucessResponse> ProvidusFundTransfer(ProvidusFundTransfer fundTransfer)
         {
-            string Url = string.Concat(_config.BaseUrl, _config.ProvidusFundTransfer);
+            string Url = string.Concat(_config.BaseUrl, "/ProvidusFundTransfer");
             var request = new StringContent(JsonConvert.SerializeObject(fundTransfer), Encoding.UTF8, "application/json");
             //another method call SendAsync --- take any HTTp verb
             HttpRequestMessage req = new HttpRequestMessage
@@ -191,7 +191,7 @@ namespace BankApiEndpoint.Service
                 if (accountDetail == null || accountDetail.ResponseCode != "00")
                 {
                     //No success response
-                    return null;
+                    return accountDetail;
 
                 }
                 else
